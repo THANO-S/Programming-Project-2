@@ -21,7 +21,10 @@ function saveConFunc(){
         xButton.onclick = function(){
             savedContact.removeChild(addCon);
         };
-    } 
+    } else{
+        alert("Please provide a name and phone number.")
+    }
+
 };
 
 
