@@ -3,29 +3,33 @@ const newConNum = document.getElementById("newContactNum");
 const newConBtn = document.getElementById("newConBtn");
 const savedContact = document.getElementById("savedCon");
 
-const xButton = document.createElement("button");
-xButton.textContent = "X";
-xButton.classList.add("close");
+
 
 newConBtn.addEventListener("click",saveConFunc);
+
 function saveConFunc(){
-    if(newConName.value !="" & newConNum.value !=""){
+    if(newConName.value !="" && newConNum.value !=""){
         const addCon= document.createElement("li")
         addCon.innerHTML= newConName.value + "......" + newConNum.value
+        
+        const xButton = document.createElement("button");
+        xButton.textContent = "X";
+        xButton.classList.add("close");
 
-        savedContact.appendChild(addCon)
-        addCon.appendChild(xButton)
-        newConName.value =""
-        newConNum.value = ""
+        addCon.appendChild(xButton);
+        savedContact.appendChild(addCon);
 
-        xButton.onclick = function(){
+        newConName.value = "";
+        newConNum.value = "";
+
+        xButton.addEventListener("click", function(){
             savedContact.removeChild(addCon);
-        };
+        });
+
+
     } else{
         alert("Please provide a name and phone number.")
     }
-
 };
-
 
 
